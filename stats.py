@@ -15,13 +15,15 @@ def get_char_count(book_text):
             char_count.update({char:1})
         else:
             char_count[char] += 1
-    return(char_count)
+    return char_count
 
-def print_report(word_count, char_count):
-    print("============ BOOKBOT ============")
-    print(f"Analyzing book found at books/frankenstein.txt")
-    print("----------- Word Count ----------")
-    print(f"Found {word_count} total words")
-    print("--------- Character Count -------")
-    print(char_count)
+def sort_on(d):
+    return d["num"]
+
+def char_sorted_list(char_count):
+    sorted_list = []
+    for ch in char_count:
+        sorted_list.append({"char": ch, "num": char_count[ch]})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
 
